@@ -4,7 +4,7 @@ version: 1.0.0.{build}
 image: Visual Studio 2017
 
 cache:
-  - c:\projects\umbracoworkflow\Workflow\node_modules -> **\packages.json
+  - c:\projects\primitiveplaceholders\node_modules -> **\packages.json
   
 # UMBRACO_PACKAGE_PRERELEASE_SUFFIX will only be used for Release builds
 # example UMBRACO_PACKAGE_PRERELEASE_SUFFIX=beta
