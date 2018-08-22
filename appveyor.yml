@@ -27,7 +27,7 @@ artifacts:
   - path: BuildPackage\artifacts\*.zip
   
 deploy:
- - provider: NuGet
+  - provider: NuGet
     server:
     api_key:
       secure: 0NpBePahJSE05yOwqbFIKfbfEv83bju7OKvYpHH6FeROlps+UjZcoKk7a4ToEHOG
@@ -35,13 +35,13 @@ deploy:
     symbol_server:    
     artifact: /.*\.nupkg/
     on:
-        branch: test
+        branch: master
         appveyor_repo_tag: true      
     
   - provider: GitHub
     tag: v1.0.0
     release: Release 1.0.0
-    description: "First release"
+    description: ":)"
     force_update: true
     auth_token:
         secure: Otbl8p8qCwciDqJgSWCyN0Arfs5XS1CwiHcK+r0F6uz9Rxt4gzBFvlc3cjPV3NxR
