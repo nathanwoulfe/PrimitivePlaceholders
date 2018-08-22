@@ -1,5 +1,5 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/ap94da7169wk0g0v?svg=true)](https://ci.appveyor.com/project/nathanwoulfe/primitiveplaceholders)
-[![NuGet release](https://img.shields.io/nuget/dt/Workflow.Umbraco.svg)](https://www.nuget.org/packages/PrimitivePlaceholders.Umbraco)
+[![Build status](https://ci.appveyor.com/api/projects/status/i5btml2f5hp73816?svg=true)](https://ci.appveyor.com/project/nathanwoulfe/primitiveplaceholders)
+[![NuGet release](https://img.shields.io/nuget/dt/PrimitivePlaceholders.Umbraco.svg)](https://www.nuget.org/packages/PrimitivePlaceholders.Umbraco)
 
 # PrimitivePlaceholders
 Generate low-poly SVG preview images for Umbraco media assets.
