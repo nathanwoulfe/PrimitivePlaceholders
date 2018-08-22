@@ -1,0 +1,87 @@
+﻿{   
+    //you can define multiple editors   
+    propertyEditors: [      
+        {
+            alias: "PrimitivePlaceholders",
+            name: "Primitive Placeholders",
+            editor: {
+                view: "~/App_Plugins/PrimitivePlaceholders/backoffice/editor.html",
+				        valueType: "JSON"
+            },
+			      prevalues: {
+                fields: [
+                    {
+                        label: "Source property alias",
+                        description: "Alias of the image upload/cropper to reference",
+                        key: "source",
+                        view: "textstring"
+                    },
+                    {
+                        label: "Number of shapes",
+                        description: "Large number means a better result, but longer processing",
+                        key: "steps",
+                        view: "decimal"
+                    },
+                    {
+                        label: "Shapes",
+                        key: "shapeTypes",
+                        description: "Valid values are 'triangle', 'rectangle', 'ellipse'",
+                        view: "multivalues"
+                    },
+                    {
+                        label: "Starting opacity",
+                        key: "alpha",
+                        view: "decimal"
+                    },
+                    {
+                        label: "Adjust opacity automatically",
+                        key: "mutateAlpha",
+                        view: "boolean"
+                    },
+                    {
+                        label: "Computation size",
+                        key: "computeSize",
+                        description: "Smaller is faster",
+                        view: "decimal"
+                    },
+                    {
+                        label: "Starting shape count",
+                        key: "shapes",
+                        description: "Large number means a better result, but longer processing",
+                        view: "decimal"
+                    },
+                    {
+                        label: "Optimization retry limit",
+                        key: "mutations",
+                        description: "Large number means a better result, but longer processing",
+                        view: "decimal"
+                    }
+                ]
+            },
+            "defaultConfig": {
+                "source": "umbracoFile",
+                "steps": 50,
+                "shapeTypes": [{"value": "triangle"},{"value": "ellipse"},{"value": "rectangle"}],
+                "alpha": 0.5,
+                "mutateAlpha": "1",
+                "computeSize": 150,
+                "shapes": 75,
+                "mutations": 20
+            }
+        }        
+    ],
+    //array of files we want to inject into the application on app_start
+    javascript: [	
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/editor.controller.js',       
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/service.js',
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/factories/canvas.js',
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/factories/optimizer/optimizer.js',
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/factories/optimizer/state.js',
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/factories/optimizer/step.js',
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/factories/shapes/shape.js',
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/factories/shapes/ellipse.js',
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/factories/shapes/polygon.js',
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/factories/shapes/rectangle.js',
+        '~/App_Plugins/PrimitivePlaceholders/backoffice/factories/shapes/triangle.js'    
+    ]    
+}

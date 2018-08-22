@@ -1,0 +1,60 @@
+﻿<div class="primitive-placeholder"
+     id="primitivePlaceholder"
+     ng-controller="primitivePlaceholderController as vm">
+    <style>
+        .primitive-placeholder {
+            display: flex;
+        }
+
+        .primitive-placeholder .flexed {
+            display: flex;
+            flex-direction: column;
+            margin-right: 15px;
+        }
+
+        .primitive-placeholder svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .primitive-placeholder .mb10 {
+            margin-bottom: 10px;
+        }
+        
+        .primitive-placeholder .umb-control-group {
+            padding-bottom:0;
+        }
+
+    </style>
+
+    <div id="output"
+         class="span6 flexed"
+         ng-show="model.value.placeholder">
+
+        <div class="vector"
+             id="vector"></div>
+
+        <!-- hidden in case we ever want the raw svg -->
+        <textarea spellcheck="false"
+                  ng-model="model.value.placeholder"
+                  style="display: none"></textarea>
+    </div>
+
+    <div class="flexed">
+
+        <umb-property ng-repeat="property in model.value.shapes"
+                      property="property">
+            <umb-editor model="property"></umb-editor>
+        </umb-property>
+
+        <button class="btn mb10"
+                ng-click="vm.regenerate($event)"
+                stop-event>{{ model.value ? 'Regenerate' : 'Generate' }}</button>
+        
+        
+        <button class="btn mb10"
+                ng-click="vm.fullscreen($event)"
+                ng-show="model.value.placeholder"
+                stop-event>Full-screen</button>
+    </div>
+</div>
