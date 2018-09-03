@@ -31,7 +31,7 @@ gulp.task('js', () =>
     .pipe(config.prod ? babel() : util.noop())
     .pipe(config.prod ? concat('primitive-placeholders.min.js') : util.noop())
     .pipe(config.prod ? uglify() : util.noop())
-    .pipe(gulp.dest(urls.dest))
+    .pipe(gulp.dest(config.prod ? urls.dest + config.folder + '/backoffice' : urls.dest))
 );
 
 gulp.task('manifest', () =>
