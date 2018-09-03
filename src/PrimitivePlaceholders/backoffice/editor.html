@@ -1,22 +1,17 @@
-﻿<div class="primitive-placeholder"
+﻿<div class="primitive-placeholder imagecropper"
      id="primitivePlaceholder"
      ng-controller="primitivePlaceholderController as vm">
     <style>
-        .primitive-placeholder {
-            display: flex;
-        }
-
-        .primitive-placeholder .flexed {
-            display: flex;
-            flex-direction: column;
-            margin-right: 15px;
-        }
-
         .primitive-placeholder svg {
             max-width: 100%;
             height: auto;
         }
 
+        .primitive-placeholder #output {
+            width:50%;
+            max-width:450px;
+        }
+        
         .primitive-placeholder .mb10 {
             margin-bottom: 10px;
         }
@@ -28,19 +23,11 @@
     </style>
 
     <div id="output"
-         class="span6 flexed"
-         ng-show="model.value.placeholder">
+         class="umb-cropper-imageholder"
+         ng-show="model.value.src">
 
-        <div class="vector"
-             id="vector"></div>
-
-        <!-- hidden in case we ever want the raw svg -->
-        <textarea spellcheck="false"
-                  ng-model="model.value.placeholder"
-                  style="display: none"></textarea>
-    </div>
-
-    <div class="flexed">
+        <div class="mb10"
+             id="pp-vector"></div>
 
         <umb-property ng-repeat="property in model.value.shapes"
                       property="property">
@@ -54,7 +41,23 @@
         
         <button class="btn mb10"
                 ng-click="vm.fullscreen($event)"
-                ng-show="model.value.placeholder"
+                ng-show="model.value.src"
                 stop-event>Full-screen</button>
+        
+        <!-- hidden in case we ever want the raw svg -->
+        <textarea spellcheck="false"
+                  ng-model="model.value.src"
+                  style="display: none"></textarea>
     </div>
+
+    <ul class="umb-sortable-thumbnails cropList clearfix">
+        <li ng-repeat="crop in vm.crops" ng-init="$last && vm.cropListRendered()">
+            <div id="pp-{{ crop.alias }}" ng-style="{ height: vm.cropSize(crop, true), width: vm.cropSize(crop, false) }"></div>
+
+            <div class="crop-information">
+                <span class="crop-name crop-text" ng-bind="crop.alias"></span>
+                <span class="crop-size crop-text">{{ crop.width }}px x {{ crop.height}}px</span>
+            </div>
+        </li>
+    </ul>
 </div>

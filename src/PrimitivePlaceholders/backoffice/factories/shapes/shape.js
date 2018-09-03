@@ -20,7 +20,7 @@
                 ctx.fillStyle = '#000';
                 ctx.globalAlpha = alpha;
                 ctx.translate(-this.bbox.left, -this.bbox.top);
-                this.render(ctx);
+                this.render(ctx); 
 
                 return canvas;
             },
@@ -36,6 +36,7 @@
             const ctors = cfg.shapeTypes;
             const index = Math.floor(Math.random() * ctors.length);
             const Ctor = ctors[index];
+
             return new Ctor(cfg.width, cfg.height);
         }
 
